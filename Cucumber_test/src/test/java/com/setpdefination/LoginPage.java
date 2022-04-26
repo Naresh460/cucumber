@@ -1,8 +1,13 @@
 package com.setpdefination;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,8 +18,10 @@ public class LoginPage {
 	WebDriver driver;
 
 
-	@Given("user is on login page")
-	public void user_is_on_login_page() throws InterruptedException {
+	@Given("user is on login pages")
+	public void user_is_on_login_pages() throws InterruptedException {
+		
+		System.out.println("access login page");
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -22,24 +29,25 @@ public class LoginPage {
 		Thread.sleep(3000);
 	}
 
-	@When("given (.*) and (.*)$")
+	@When("givenn (.*) and (.*)$")
 	public void given_username_and_password(String user, String pasword) throws InterruptedException {
 
 		driver.findElement(By.id("txtUsername")).sendKeys(user);
-		Thread.sleep(3000);
+		
 		driver.findElement(By.id("txtPassword")).sendKeys(pasword);
-		Thread.sleep(3000);
+		
 
 	}
-
-	@And("click on login button")
+	
+	
+	@And("click on login buttonn")
 	public void click_on_login_button() {
 		driver.findElement(By.id("btnLogin")).click();
 	}
 
-	@Then("landed on homepage")
+	@Then("landed on homepagee")
 	public void landed_on_homepage() {
-		System.out.println("In homepage");
+		driver.quit();
 
 	}
 

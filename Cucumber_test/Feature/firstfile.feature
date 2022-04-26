@@ -7,15 +7,21 @@ Feature: Test login functionality
    ## And click on login button
    ## Then landed on homepage
    
-  Scenario Outline: Testing the valid login  
+  Scenario: Testing the valid login  
+  
     Given user is on login page                      
-    When given <username> and <password>
-    And click on login button
-    Then landed on homepage    
-    Examples:
+    When user enters below credentials from Datatable
     |username|password|
     |Admin|admin123|
-    |admin|adminn12345|
+     |Admin|admin123|
+      |Admin|admin123|
+       |Admin|admin123|
+        |Admin|admin123|
+    
+    And click on login button
+    Then landed on homepage    
+    
+   
     
     
 
